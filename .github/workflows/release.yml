@@ -39,7 +39,7 @@ jobs:
       
       - uses: typst-community/setup-typst@v4
       # Now Typst is installed!
-      - run: typst compile main.typ output.pdf
+      - run: typst compile main.typ ICA_1872.pdf
 
       # 1. Generate the timestamp for the tag
       - name: Get current time
@@ -54,7 +54,7 @@ jobs:
           tag_name: ${{ steps.date.outputs.timestamp }}
           name: "Release: ${{ steps.date.outputs.timestamp }}"
           body: "Automated build for commit ${{ github.sha }}"
-          files: output.pdf
+          files: ICA_1872.pdf
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
